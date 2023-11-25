@@ -167,7 +167,7 @@ eg for product 1  5rs = 1 zomato points, for product 2 10 rs =5 zomato points an
 
 -- 10. calculate the points collected by each customers and for which product most points have been given till now
 -- Q.a) points collected by each customers and their cashback
--- A.a) (user 1 with 1829 points and 4572.5 rs) ,(user 2 with 1697 points and 4242.5rs) ,(user 3 with 763 points and 1907.5 rs)
+-- A10.10a) (user 1 with 1829 points and 4572.5 rs) ,(user 2 with 1697 points and 4242.5rs) ,(user 3 with 763 points and 1907.5 rs)
 
 WITH pd AS(
 SELECT cal.*, ROUND(cal.price/cal.product_points) AS points
@@ -186,8 +186,8 @@ SELECT pd.userid, SUM(pd.points) AS total_points, SUM(pd.points)*2.5 AS cashback
 FROM pd
 GROUP BY pd.userid;
 
--- Q.b) which product has given most points
--- A.b) Product 2 with total points 3045
+-- Q10.b) which product has given most points
+-- A10.b) Product 2 with total points 3045
 WITH cal AS (
 SELECT points.*, ROUND(points.price/points.rs_to_get_points) AS points
 FROM (SELECT s.userid, s.product_id,p.product_name, p.price,
@@ -207,7 +207,7 @@ ORDER BY total_points DESC
 LIMIT 1;
 
 
-/*11.  IN THE FIRST ONE YEAR AFTER A CUSTOMER JOINS THE GOLD PROGRAM (INCLUDING THEIR JOIN DATE) IRRESPECTIVE
+/* Q11.  IN THE FIRST ONE YEAR AFTER A CUSTOMER JOINS THE GOLD PROGRAM (INCLUDING THEIR JOIN DATE) IRRESPECTIVE
 OF WHAT THE CUSTOMER PURCHASED THEY EARN 5 ZOMATO POINTS FOR EVERY 10RS SPENT WHO EARNED MORE 1 OR 3 AND WHAT WAS 
 THEIR POINTS EARNING IN THERI FIRST YEAR? , 1 ZOMATO POINTS = 2 RS -- THEN 0.5 ZOMATO POINTS = 1RS
 */
@@ -223,7 +223,7 @@ AND s.created_date<= DATE_ADD(gs.gold_signup_date, INTERVAL 1 YEAR)
 AND p.product_id = s.product_id
 ORDER BY points DESC;
 
--- 12. RANK ALL THE TRASACTIONS OF THE CUSTOMERS
+-- Q12. RANK ALL THE TRASACTIONS OF THE CUSTOMERS
 
 SELECT s.userid,s.created_date,p.product_id,p.price,p.product_name, RANK() OVER(PARTITION BY s.userid ORDER BY s.created_date) AS rnk
 FROM sales AS s
@@ -231,7 +231,7 @@ JOIN product AS p
 ON s.product_id = p.product_id;
 
 
--- RANK ALL THE TRANSACTIONS FOR EACH MEMBER WHENEVER THEY ARE A ZOMATO GOLD MEMBER FOR EVERY NON GOLD MEMBER TRANSACTION MARK AS NA
+-- Q13.RANK ALL THE TRANSACTIONS FOR EACH MEMBER WHENEVER THEY ARE A ZOMATO GOLD MEMBER FOR EVERY NON GOLD MEMBER TRANSACTION MARK AS NA
 WITH ms AS(
 SELECT s.userid, s.created_date, s.product_id,p.price,p.product_name
 , (CASE WHEN s.userid = gs.userid AND s.created_date >= gs.gold_signup_date THEN "YES"
