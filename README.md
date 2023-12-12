@@ -50,7 +50,16 @@ product: Provides details about the products available on Zomato, including prod
   
 12.Ranking Transactions During Zomato Gold Membership:
   Ranked all transactions for each customer, marking non-gold member transactions as "NA."
-  
+
+13.Calculate the recency of each customer's last purchase:
+  Returns user ID and the number of days since the last purchase for each customer.
+
+14.Determine the frequency of purchases for each customer:
+  Returns user ID and the count of distinct purchase dates for each customer.
+
+15.Assess the monetary value of each customer's transactions:
+  Returns user ID and the total amount spent by each customer.
+
   
 ## Usage
 To reproduce the analysis or explore the dataset further, you can use the provided SQL queries and adapt them to your database system. Simply execute the queries in the specified order to obtain the desired insights.
