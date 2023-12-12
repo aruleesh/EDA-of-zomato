@@ -247,3 +247,39 @@ SELECT ms.userid, ms.created_date, ms.product_id,ms.price, ms.product_name
 	ELSE "NA"
     END) AS rnk
 FROM ms
+
+-- Q14 Calculate the recency of each customer's last purchase
+SELECT
+  userid,
+  DATEDIFF(NOW(), MAX(created_date)) AS recency
+FROM
+  sales
+GROUP BY
+  userid;
+
+-- Q15 etermine the frequency of purchases for each customer
+SELECT
+  userid,
+  COUNT(DISTINCT created_date) AS frequency
+FROM
+  sales
+GROUP BY
+  userid;
+
+-- Q16 Assess the monetary value of each customer's transactions
+SELECT
+  userid,
+  SUM(price) AS monetary_value
+FROM
+  sales
+GROUP BY
+  userid;
+
+
+
+
+
+
+
+
+
