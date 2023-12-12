@@ -6,13 +6,13 @@ This project involves the analysis of a simulated dataset representing user sign
 ## Data Schema
 The project includes the following tables:
 
-goldusers_signup: Contains information about users who have signed up for the Zomato Gold membership, including user ID and the signup date.
+1.Goldusers_signup: Contains information about users who have signed up for the Zomato Gold membership, including user ID and the signup date.
 
-users: Represents general user signups, including user ID and signup date.
+2.Users: Represents general user signups, including user ID and signup date.
 
-sales: Records transactions made by users, including user ID, transaction date, and product ID.
+3.Sales: Records transactions made by users, including user ID, transaction date, and product ID.
 
-product: Provides details about the products available on Zomato, including product ID, product name, and price.
+4.Product: Provides details about the products available on Zomato, including product ID, product name, and price.
 
 ## Key Questions Explored
 1.Total Spending by Each Customer on Zomato:
