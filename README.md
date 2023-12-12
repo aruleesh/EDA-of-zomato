@@ -61,5 +61,3 @@ product: Provides details about the products available on Zomato, including prod
   Returns user ID and the total amount spent by each customer.
 
   
-## Usage
-To reproduce the analysis or explore the dataset further, you can use the provided SQL queries and adapt them to your database system. Simply execute the queries in the specified order to obtain the desired insights.
