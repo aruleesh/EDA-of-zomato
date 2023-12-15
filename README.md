@@ -30,7 +30,7 @@ The project includes the following tables:
 5.Most Favored Item for Each Customer:
   Determined the most favored item for each customer.
   
-6.First Item Purchased by Each Customer:
+6.Name of First Item Purchased by Each Customer:
   Identified the first item purchased by each customer.
   
 7.Item Purchased Just Before Becoming a Premium Member:
