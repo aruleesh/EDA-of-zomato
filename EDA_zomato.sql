@@ -257,7 +257,7 @@ FROM
 GROUP BY
   userid;
 
--- Q15 etermine the frequency of purchases for each customer
+-- Q15 determine the frequency of purchases for each customer
 SELECT
   userid,
   COUNT(DISTINCT created_date) AS frequency
